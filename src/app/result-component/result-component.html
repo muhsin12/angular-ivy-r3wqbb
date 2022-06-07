@@ -1,0 +1,31 @@
+<table
+  class="table table-striped"
+  data-pagination="true"
+  data-id-field="name"
+  data-page-list="[5, 10, 25, 50, 100, ALL]"
+  data-page-size="5"
+>
+  <thead>
+    <tr>
+      <th scope="col">user</th>
+      <th scope="col">user type</th>
+      <th scope="col">avatar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let user of users | paginate: {id : 'list-user',
+  itemsPerPage: 10,
+currentPage: page,
+totalItems: totalRecords }"
+    >
+      <td>{{user.login}}</td>
+      <td>{{user.type}}</td>
+      <td><img width="50px" height="50px" src="{{user.avatar_url}}" /></td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls
+  id="list-user"
+  (pageChange)="page = $event"
+></pagination-controls>

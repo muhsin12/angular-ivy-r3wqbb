@@ -1,0 +1,7 @@
+<div class="search-wrapper">
+  <input type="text" [(ngModel)]="login" />
+  <button (click)="getUserDetails()">Search</button>
+</div>
+<div>
+  <result-component [users]="users"></result-component>
+</div>
